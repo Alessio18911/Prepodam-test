@@ -1,11 +1,11 @@
 <template>
-  <div class="page-header">
+  <header class="page-header" ref="header">
     <div class="center page-header__wrapper">
       <span class="page-header__city">{{ contacts.city }}</span>
       <Logo class="page-header__logo" />
       <a class="page-header__phone link" :href="`tel:${contacts.phoneNumber}`">{{ contacts.phone }}</a>
 
-      <div class="page-header__inner" ref="dropdown">
+      <div class="page-header__inner">
         <ul class="page-header__nav main-nav list">
           <li class="main-nav__item" v-for="(item, i) in mainNav" :key="i">
             <a :href="item.href" class="main-nav__item-link link">{{ item.text }}</a>
@@ -18,10 +18,9 @@
         </ul>
         <a class="page-header__btn button button--transparent link" :href="btn.href">{{ btn.text }}</a>
       </div>
-
       <Burger />
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -79,10 +78,23 @@ export default {
 
 <style lang="scss">
 .page-header {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   font-size: 16px;
   padding: 10px 30px 0 22px;
-  background-color: $black1;
+  transition: background-color 0.25s ease-in-out 0.25s;
+
+  &--active {
+    background-color: $black1;
+    transition: background-color 0.25s ease-in-out;
+
+    .page-header__inner {
+      max-height: 500px;
+      transition: max-height 0.25s ease-in-out 0.25s;
+    }
+  }
 
   .link {
     color: inherit;
@@ -109,12 +121,9 @@ export default {
     top: 0;
     left: 0;
     text-align: center;
-    background: $black1;
+    background-color: $black1;
     overflow: hidden;
-
-    &__inner--opened {
-      max-height: 500px;
-    }
+    transition: max-height 0.25s ease-in-out;
   }
 
   &__logo {

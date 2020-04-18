@@ -3,6 +3,7 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: 'Montserrat', 'Arial', sans-serif;
   font-size: 14px;
@@ -62,8 +63,10 @@ img {
   display: inline-block;
   padding: 0;
   color: $white;
-  border: none;
-
+  line-height: 35px;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.25s ease-in-out,
   opacity 0.25s ease-in-out;
@@ -78,11 +81,9 @@ img {
     height: 40px;
     font-size: 12px;
     font-weight: 500;
-    line-height: 35px;
-    text-transform: uppercase;
     background-color: transparent;
-    border: 2px solid $pink;
-    border-radius: 3px;
+    border-color: $pink;
+
 
     &:hover {
       background-color: $pink;
@@ -94,10 +95,13 @@ img {
   }
 
   &--pink {
+    width: 304px;
+    height: 40px;
+    border-color: $pink;
     background-color: $pink;
 
     &:hover {
-      background-color: $white;
+      background-color: transparent;
     }
   }
 }

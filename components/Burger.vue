@@ -1,5 +1,5 @@
 <template>
-  <button class="burger" >
+  <button class="burger" @click.prevent="toggleActive" ref="burger">
     <span></span>
   </button>
 </template>
@@ -9,10 +9,9 @@ export default {
   methods: {
     toggleActive() {
       this.$refs.burger.classList.toggle('burger--active');
-      this.$refs.dropdown.classList.toggle('page-header__inner--opened');
+      this.$parent.$refs.header.classList.toggle('page-header--active');
     }
   }
-
 }
 </script>
 
