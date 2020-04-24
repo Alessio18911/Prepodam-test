@@ -62,7 +62,7 @@ export default {
 
   &__list-item {
     flex-shrink: 0;
-    width: 260px;
+    width: 238px;
     height: 412px;
     margin: 0 15px;
     background-repeat: no-repeat;
